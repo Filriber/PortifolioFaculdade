@@ -1,0 +1,82 @@
+package Funções;
+
+import java.util.Scanner;
+
+public class VetorInt {
+	
+	public static int obterTamanho(){
+        Scanner  input = new Scanner(System.in);
+        System.out.println("Tamanho: ");
+        int t = input.nextInt();
+        return t;
+    }
+	public static int obterComp(){
+        Scanner  input = new Scanner(System.in);
+        System.out.println("Escolha o numero para comparação: ");
+        int t = input.nextInt();
+        return t;
+	}
+    
+    public static int[] criarVetor(int t){
+        int[] v = new int[t];
+        return v;
+    }
+    
+    public static int[] populaVetor(int[] vet){
+        Scanner input = new Scanner(System.in);
+        for(int i=0; i < vet.length; i++){
+            System.out.printf("vetor[%d]: \n", i);
+            vet[i] = input.nextInt();
+        }
+        return vet;
+    }
+    
+    public static void imprimirVetor(int[] vet){
+        for(int i=0; i<vet.length; i++){
+            System.out.printf("vetor[%d]: %d \n", i, vet[i]);
+           
+        }
+    }
+    
+    public static void imprimirNegativos(int[] vet){
+         for(int i=0; i<vet.length; i++){
+            if(vet[i] < 0){
+                System.out.printf("vetor[%d]: %d \n", i, vet[i]);
+            }  
+        }
+    }
+
+    public static boolean comparar(int[]vet, int num) {
+    	boolean i = false;
+    	for (int cont = 0; cont < vet.length; cont++) {
+    		if (vet[cont]==num) {
+    			i = true;
+    		}
+    	}
+    	return i;	
+    }
+    public static void textoResultado(boolean i) {
+    	System.out.println("o seu resultado é: "+i);
+    }
+    public static int [] produtoVet1Vet2 (int []vet, int []vet2, int t) {
+    	int [] vetFim = new int [t];
+    	for(int cont=0; cont < vet.length; cont++) {
+    		 vetFim [cont] = vet[cont] * vet2[cont];
+    	}
+    	return vetFim;
+    }
+    
+    
+    public static void main(String[] args) {
+        int t = obterTamanho();
+        int[] v = criarVetor(t);
+        v = populaVetor(v);
+        int []v2 = criarVetor(t);
+        v2 = populaVetor(v2);
+        int [] vFinal= produtoVet1Vet2(v,v2,t);
+        imprimirVetor(vFinal);
+       
+    }
+   
+}
+
