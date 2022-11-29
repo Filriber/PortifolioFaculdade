@@ -1,0 +1,229 @@
+package Funções;
+
+import java.util.Scanner;
+
+public class VetoresFloat {
+
+	public static int obterTamanho() {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Tamanho: ");
+		int t = input.nextInt();
+		return t;
+	}
+
+	public static float obterNumeroReal() {
+		Scanner input = new Scanner(System.in);
+		float t = input.nextFloat();
+		System.out.println("Numero real Escolhido: " + t);
+		return t;
+	}
+
+	public static float[] criarVetor(int t) {
+		float[] v = new float[t];
+		return v;
+	}
+
+	public static float[] populaVetor(float[] v) {
+		Scanner input = new Scanner(System.in);
+		for (int i = 0; i < v.length; i++) {
+			System.out.printf("vetor[%d]: \n", i);
+			v[i] = input.nextFloat();
+		}
+		return v;
+	}
+
+	public static void imprimirVetor(float[] v) {
+		for (int i = 0; i < v.length; i++) {
+			System.out.println("vetor[" + i + "]: " + v[i]);
+		}
+	}
+
+	public static void imprimirNegativos(float[] v) {
+		for (int i = 0; i < v.length; i++) {
+			if (v[i] < 0) {
+
+				System.out.println("vetor[" + i + "]: " + v[i]);
+			}
+		}
+	}
+
+	public static float somaVetor(float[] vet) {
+		float soma = 0;
+		for (int cont = 0; cont < vet.length; cont++) {
+			soma += vet[cont];
+		}
+		return soma;
+	}
+
+	public static float maiorDoVetor(float[] vet) {
+		float maior = 0;
+		for (int cont = 0; cont < vet.length; cont++) {
+			if (maior < vet[cont]) {
+				maior = vet[cont];
+			}
+		}
+		return maior;
+	}
+
+	public static float menorDoVetor(float[] vet) {
+		float menor = 999999999;
+		for (int cont = 0; cont < vet.length; cont++) {
+			if (vet[cont] < menor) {
+				menor = vet[cont];
+			}
+		}
+		return menor;
+	}
+
+	public static float mediaDoVetor(float[] vet) {
+		float media = 0;
+		float soma = 0;
+		int cont = 0;
+		for (cont = 0; cont < vet.length; cont++) {
+			soma += vet[cont];
+		}
+		media = (soma / cont);
+		return media;
+	}
+
+	public static float produtoDoVetor(float[] vet) {
+		float produto = 1;
+		for (int cont = 0; cont < vet.length; cont++) {
+			produto = produto * vet[cont];
+		}
+		return produto;
+	}
+
+	public static float[] produtoDoReal(float[] vet, float real) {
+		int cont = 0;
+		for (cont = 0; cont < vet.length; cont++) {
+			vet[cont] = vet[cont] * real;
+		}
+		return vet;
+	}
+
+	public static void imprimirResultado(float n) {
+		System.out.println("-----------Resultado-----------");
+		System.out.println("a o Resultado da sua operação é: " + n);
+	}
+
+	public static void textoMontado() {
+		System.out.println("----------------------------------------");
+		System.out.println("Escolha o seu numero Real para multiplicar cada casa do vetor");
+	}
+
+	public static float[] posicaoImpar(float[] vet, float f, int t) {
+
+		float[] vetFim = new float[t];
+		for (int cont = 0; cont < vet.length; cont++) {
+
+			if (cont % 2 != 0) {
+				vetFim[cont] = vet[cont] * f;
+
+			} else {
+				vetFim[cont] = vet[cont];
+			}
+		}
+		return vetFim;
+	}
+
+	public static float posicaoPar(float[] vet, int t) {
+		float vetMedia = 0;
+		float[] vetFim = new float[t];
+		int contr = 0;
+		float vetSoma = 0;
+		for (int cont = 0; cont < vet.length; cont++) {
+			if (cont % 2 == 0) {
+				vetSoma = vetSoma+vet[cont];
+				contr++;
+
+			}
+			
+			vetMedia = vetSoma / contr;
+
+		}
+		return vetMedia;
+	}
+	public static float[] qualImprimir (float []vet, float media) {
+		for (int cont = 0; cont < vet.length; cont++) {
+		    if(vet[cont]>media) {
+		    	System.out.println(vet[cont]);
+		    
+		    }
+		}
+		return vet;
+	}
+	public static float maiorSoma(float somav1, float somav2) {
+		float maiorSoma = 0;
+		if (somav1>somav2) {
+		maiorSoma = somav1;
+		}else {
+			maiorSoma = somav2;
+		}
+	return maiorSoma;
+	}
+	public static float menorMedia(float mediav1,float mediav2) {
+		float mediaTotal = 0;
+		if (mediav1<mediav2) {
+			mediaTotal=mediav1;
+			
+		}else {
+			mediaTotal = mediav2;
+		}
+		return mediaTotal;
+	}
+	public static void imprimirMSoma(float soma) {
+		System.out.println("a maior soma é: "+ soma);
+	}
+	public static void imprimirMeMedia(float media) {
+		System.out.println("a menor média é: "+media);
+	}
+	public static float[] montarVetorC (float [] vet, float []vet2, int t) {
+		float [] vetNew = new float [t*2] ;
+		for (int cont = 0; cont<vet.length; cont++) {
+			vetNew[cont] = vet[cont];
+			
+		}
+		int cont2 = 0;
+		for (int cont = 4  ; cont <= 7; cont++) {
+			vetNew[cont]= vet2[cont2];
+			cont2 ++;
+		}
+		 return vetNew;
+		
+	}
+	public static float[] montarVetorCAlte (float [] vet, float []vet2, int t) {
+		float [] vetNew = new float [t*2] ;
+		int adCont=0;
+		for (int cont = 0; cont<=t; cont++) {
+			if(cont%2==0){
+				vetNew[cont]=vet[adCont];
+			}else if (cont%2!=0) {
+				vetNew[cont]=vet2[adCont];
+			}
+			adCont++;
+		}
+		return vetNew;
+	}
+	
+	public static void main(String[] args) {
+		int t = obterTamanho();
+		float[] v = criarVetor(t);
+		v = populaVetor(v);
+		float[] v2 = criarVetor(t);
+		v2 = populaVetor(v2);
+		//float somav1 = somaVetor(v);
+		//float somav2 = somaVetor(v2);
+		//float mediav1 = mediaDoVetor(v);
+		//float mediav2 = mediaDoVetor(v2);
+		//float maSoma = maiorSoma(somav1,somav2) ;
+		//float meMed = menorMedia(mediav1, mediav2);
+		//imprimirMSoma(maSoma);
+		//imprimirMeMedia(meMed);
+		//float [] vetorC = montarVetorC(v,v2,t);
+		//imprimirVetor(vetorC);
+	    float [] vetorC = montarVetorCAlte(v,v2,t);
+	    imprimirVetor(vetorC);
+	}
+
+}
